@@ -1,0 +1,63 @@
+<!--插槽slots-->
+<!DOCTYPE html>
+<html lang="zh-en">
+<head>
+    <meta charset="UTF-8">
+    <title>18.18</title>
+    <style>
+        .panel{
+            max-width: 300px;
+            border: 1px solid #999;
+            margin-bottom: 15px;
+        }
+        .panel > * {
+            padding: 15px;
+        }
+        .panel .title{
+            border-bottom: 1px solid #999;
+        }
+        .panel .footer{
+            border-top: 1px solid #999;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <panel>
+        <div slot="title">
+            Yo.
+        </div>
+        <div slot="content">
+            Yo
+            Yo
+            Yo
+            Yo
+        </div>
+        <!--<div slot="footer"></div>-->
+        <!--这里虽然没有设置footer，但是由于下面已经设置footer默认值“更多信息”，故会显示这个默认值-->
+    </panel>
+
+</div>
+<template id="panel-tpl">
+    <div class="panel">
+        <div class="title">
+            <slot name="title"></slot>
+        </div>
+        <div class="content">
+            <slot name="content"></slot>
+        </div>
+        <div class="footer">
+            <slot name="footer">
+                <!--设置footer的默认值   -->
+                更多信息
+            </slot>
+        </div>
+    </div>
+</template>
+
+<script src="../lib/vue.js"></script>
+<script src="js/main.js"></script>
+
+
+</body>
+</html>
